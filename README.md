@@ -28,3 +28,8 @@
 - [nodejs](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
 - [luarocks](https://luarocks.org/)
+- [brightnessctl](https://github.com/Hummer12007/brightnessctl)
+
+
+## Fixes
+- Brightness control: `sudo usermod -aG video $USER`
