@@ -1,8 +1,12 @@
 alias zshconfig="nvim ~/.zshrc"
+alias zshalias="nvim ~/.zsh_aliases"
 alias zshsource="source ~/.zshrc"
 
 alias vim="nvim"
 alias vi="nvim"
-alias nvimconfig="nvim ~/.config/nvim/"
+alias nconf="nvim ~/.config/nvim/"
 
 alias ff="find -type f -not -iregex '.*/\.git/.*' | fzf-tmux -p --reverse | xargs -r nvim"
+
+alias projects="cd ~/Projects"
+alias dfiles="cd ~/Dotfiles"
