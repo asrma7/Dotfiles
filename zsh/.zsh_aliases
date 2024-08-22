@@ -1,12 +1,26 @@
-alias zshconfig="nvim ~/.zshrc"
-alias zshalias="nvim ~/.zsh_aliases"
-alias zshsource="source ~/.zshrc"
+alias zc="nvim ~/.zshrc"
+alias za="nvim ~/.zsh_aliases"
+alias zs="source ~/.zshrc"
 
 alias vim="nvim"
 alias vi="nvim"
-alias nconf="nvim ~/.config/nvim/"
+alias nvc="nvim ~/.config/nvim/"
 
 alias ff="find -type f -not -iregex '.*/\.git/.*' | fzf-tmux -p --reverse | xargs -r nvim"
 
-alias projects="cd ~/Projects"
-alias dfiles="cd ~/Dotfiles"
+alias work="cd ~/Projects"
+alias dot="cd ~/Dotfiles"
+
+alias :q="exit"
+alias py="python"
+alias vim="nvim"
+alias nf="neofetch"
+alias ls='eza --icons --color=always --group-directories-first'
+alias ll='eza -alF --icons --color=always --group-directories-first'
+alias la='eza -a --icons --color=always --group-directories-first'
+alias l='eza -F --icons --color=always --group-directories-first'
+alias l.='eza -a | egrep "^\."'
+alias mk="musikcube"
+
+alias config="cd ~/.config"
+alias ndot="~/.config/scripts/ndot.sh"

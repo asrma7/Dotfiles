@@ -16,11 +16,7 @@
 - [neovim](https://neovim.io/)
 - [tmux](https://github.com/tmux/tmux/wiki)
 - [kitty](https://sw.kovidgoyal.net/kitty/)
-- [i3wm](https://i3wm.org/)
-- [polybar](https://github.com/polybar/polybar/wiki)
 - [rofi](https://github.com/davatorium/rofi)
-- [feh](https://feh.finalrewind.org/)
-- [picom](https://github.com/yshui/picom)
 - [tpm](https://github.com/tmux-plugins/tpm)
 - [fzf](https://junegunn.github.io/fzf/)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -29,7 +25,3 @@
 - [npm](https://www.npmjs.com/)
 - [luarocks](https://luarocks.org/)
 - [brightnessctl](https://github.com/Hummer12007/brightnessctl)
-
-
-## Fixes
-- Brightness control: `sudo usermod -aG video $USER`

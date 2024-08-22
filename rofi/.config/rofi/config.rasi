@@ -1,16 +1,93 @@
-configuration{
-    modi: "run,window,combi";
-    icon-theme: "Oranchelo";
-    show-icons: true;
-    terminal: "alacritty";
-    drun-display-format: "{icon} {name}";
-    location: 0;
-    disable-history: false;
-    hide-scrollbar: true;
-    display-combi: " 🖥️  All ";
-    display-run: " 🏃  Run ";
-    display-window: " 🪟  Window";
-    sidebar-mode: true;
+configuration {
+    modes: "window,run,ssh,drun,calc";
+    sorting-method: "normal";
+    show-icons:true;
+    matching: "regex";
+    drun-match-fields: "name";
+    display-run: "Menu:";
+    display-ssh: "SSH:";
+    display-drun: " ";
+    display-window: " ";
+    display-calc: " ";
+    terminal: "/usr/bin/kitty";
 }
 
-@theme "catppuccin-mocha"
+@theme "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    font: "MesloLGS Nerd Font Mono 12";
+    margin:     0px;
+    padding:    0px;
+    spacing:    0px;
+}
+
+window {
+    location:       center;
+    width:          300;
+    border-radius:  15px;
+
+    border: 2px;
+    border-color: @border-color;
+}
+
+mainbox {
+    padding:    12px;
+}
+
+inputbar {
+    border-radius:  14px;
+    border:         2px;
+
+    padding:    8px 16px;
+    spacing:    8px;
+    children:   [ prompt, entry ];
+}
+
+prompt {
+}
+
+entry {
+    placeholder:        "Type...";
+}
+
+message {
+    margin:             12px 0 0;
+    border-radius:      10px;
+}
+
+textbox {
+    padding:    8px 24px;
+}
+
+listview {
+    background-color:   transparent;
+    margin:     12px 0 0;
+    columns:    1;
+    lines:      6;
+
+    fixed-height: false;
+}
+
+element {
+    padding:        8px 8px;
+    spacing:        8px;
+    border-radius:  15px;
+}
+
+element normal urgent {
+}
+
+element normal active {
+}
+
+element selected normal, element selected active {
+}
+
+element-icon {
+    size:           1em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+}

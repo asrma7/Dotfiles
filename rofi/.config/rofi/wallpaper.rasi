@@ -1,0 +1,69 @@
+configuration {
+    matching: "regex";
+    drun-match-fields: "name";
+    terminal: "/usr/bin/kitty";
+}
+
+@theme "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    font: "MesloLGS Nerd Font Mono 12";
+    margin:     0px;
+    padding:    0px;
+    spacing:    0px;
+}
+
+window {
+    location: center;
+    width:          500;
+    border-radius:  15px;
+
+    border: 2px;
+    border-color: @border-color;
+}
+
+mainbox {
+    padding:    2px;
+}
+
+inputbar {
+	enabled:true;
+}
+
+prompt {
+	enabled: true;
+}
+
+listview {
+    background-color:   transparent;
+    columns:    1;
+    lines:      8;
+    fixed-height: false;
+}
+
+element {
+    border-radius:  14px;
+    orientation: horizontal;
+    children: [ element-text, element-icon ];
+    spacing: 5px;
+}
+
+element normal urgent {
+}
+
+element normal active {
+}
+
+element selected normal, element selected active {
+}
+
+element-icon {
+    size:           4em;
+}
+
+element-text {
+    text-color: inherit;
+    size: 4em;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
