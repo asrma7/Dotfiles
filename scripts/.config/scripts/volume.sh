@@ -1,11 +1,17 @@
 #!/bin/bash
 
-iDIR="$HOME/.config/dunst/imgs"
+iDIR="$HOME/.config/mako/icons"
 
 # Get Volume
 get_volume() {
-	volume=$(pamixer --get-volume)
-	echo "$volume"
+    volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}' | tr -d '.' | sed 's/^0*//')
+    muted=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}' | tr -d '[]')
+    if [ -n "$muted" ]; then
+        volume=$muted
+    elif [ -z "$volume" ]; then
+        volume=0
+    fi
+    echo "$volume"
 }
 
 # Get icons
@@ -29,30 +35,22 @@ notify_user() {
 
 # Increase Volume
 inc_volume() {
-	pamixer -i 5 && notify_user
+	wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && notify_user
 }
 
 # Decrease Volume
 dec_volume() {
-	pamixer -d 5 && notify_user
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify_user
 }
 
 # Toggle Mute
 toggle_mute() {
-	if [ "$(pamixer --get-mute)" == "false" ]; then
-		pamixer -m && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/volume-mute.png" "Volume Switched OFF"
-	elif [ "$(pamixer --get-mute)" == "true" ]; then
-		pamixer -u && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume Switched ON"
-	fi
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify_user
 }
 
 # Toggle Mic
 toggle_mic() {
-	if [ "$(pamixer --source 66 --get-mute)" == "false" ]; then
-		pamixer -m --source 66 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/microphone-mute.png" "Microphone Switched OFF"
-	elif [ "$(pamixer --source 66 --get-mute)" == "true" ]; then
-		pamixer -u --source 66 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/microphone.png" "Microphone Switched ON"
-	fi
+    wpctl set-mute @DEFAULT_SOURCE@ toggle
 }
 
 # Execute accordingly

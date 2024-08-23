@@ -105,12 +105,12 @@
     },
     "pulseaudio": {
         "format": "{icon}",
-        "format-muted": "婢",
+        "format-muted": "",
         "format-icons": {
             "default": ["", "", "󰕾"]
         },
         "on-click": "pavucontrol &",
-        "on-click-right": "pamixer -t",
+        "on-click-right": "~/.config/scripts/volume.sh --toggle",
         "scroll-step": 5,
         "on-scroll-up": "~/.config/scripts/volume.sh --inc",
         "on-scroll-down": "~/.config/scripts/volume.sh --dec"

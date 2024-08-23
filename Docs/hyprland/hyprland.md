@@ -11,7 +11,7 @@
 - **Launch Calculator**: `MOD + V`
 - **Open Wifi Menu**: `MOD + W`
 - **Lock Session**: `SUPER + L`
-- **Restart Bar**: `MOD + SHIFT + B`
+- **Open Default Browser**: `MOD + SHIFT + B`
 - **Open Windows Menu (Rofi)**: `MOD + SHIFT + W`
 - **Open Power Menu**: `MOD + SHIFT + X`
 - **Exit Hyprland**: `MOD + SHIFT + ESCAPE`
