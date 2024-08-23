@@ -1,6 +1,7 @@
 alias zc="nvim ~/.zshrc"
 alias za="nvim ~/.zsh_aliases"
 alias zs="source ~/.zshrc"
+alias ze="source ~/.zshenv"
 
 alias vim="nvim"
 alias vi="nvim"
@@ -24,3 +25,8 @@ alias mk="musikcube"
 
 alias config="cd ~/.config"
 alias ndot="~/.config/scripts/ndot.sh"
+alias tmux-sessionizer="~/.config/scripts/tmux-sessionizer"
+
+alias htmux="firefox ~/Dotfiles/Docs/tmux"
+alias hhypr="firefox ~/Dotfiles/Docs/hyprland"
+alias hnvim="firefox ~/Dotfiles/Docs/neovim"

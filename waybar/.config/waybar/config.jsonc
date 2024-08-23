@@ -6,16 +6,17 @@
     "passthrough": false, // Waybar passthrough
     "mod": "dock", // Waybar mod dock
     "gtk-layer-shell": true, // Waybar gtk layer shell
-    "reload_style_on_change": true, // Waybar reload style on change
+    "reload_style_on_change": false, // Waybar reload style on change
     "modules-left": [
         "idle_inhibitor",
         "cpu",
         "memory",
-        "custom/spotify",
-        "battery"
+        "battery",
+        "hyprland/window"
     ],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": [
+        "custom/spotify",
         "tray",
         "custom/theme",
         "bluetooth",
@@ -46,6 +47,18 @@
         "persistent-workspaces": {
             "*": 7
         }
+    },
+    "hyprland/window": {
+        "rewrite": {
+            "(.*) - Brave": "$1",
+            "(.*) - Chromium": "$1",
+            "(.*) - Brave Search": "$1",
+            "(.*) - Outlook": "$1",
+            "(.*) Microsoft Teams": "$1"
+        },
+        "icon": true,
+        "max-length": 40,
+        "separate-outputs": true
     },
     "tray": {
         "spacing": 10
@@ -140,7 +153,7 @@
         "on-click": "rofi -show powermenu -modi powermenu:~/.config/scripts/powermenu.sh -config ~/.config/rofi/powermenu.rasi"
     },
     "idle_inhibitor": {
-        "format": "  {icon}", //{icon}
+        "format": " {icon}", //{icon}
         "format-icons": {
             "activated": "󰈈",
             "deactivated": ""

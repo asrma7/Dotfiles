@@ -82,7 +82,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source ~/.zsh_profile
-source ~/.zsh_aliases
+# source ~/.zsh_aliases
 
 # User configuration
 
