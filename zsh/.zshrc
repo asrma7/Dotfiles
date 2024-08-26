@@ -113,4 +113,8 @@ source ~/.zsh_profile
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH="$PATH:$HOME/.tmux/plugins/tmuxifier/bin"
+eval "$(tmuxifier init -)"
+
 export EDITOR='nvim'
+export OPENCV_LOG_LEVEL=ERROR

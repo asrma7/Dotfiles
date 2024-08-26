@@ -153,13 +153,13 @@
         "on-click": "rofi -show powermenu -modi powermenu:~/.config/scripts/powermenu.sh -config ~/.config/rofi/powermenu.rasi"
     },
     "idle_inhibitor": {
-        "format": " {icon}", //{icon}
+        "format": " ", //{icon}
         "format-icons": {
-            "activated": "󰈈",
-            "deactivated": ""
+            "activated": "󰈈 ",
+            "deactivated": "󰈉 "
         },
-        "timeout": 60.0,
-        "tooltip": false
+        "format-alt": "{icon}",
+        "format-alt-click": "click-right",
     },
     "custom/theme": {
         "format": "",
