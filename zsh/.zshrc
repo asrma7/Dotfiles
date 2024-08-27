@@ -113,6 +113,8 @@ source ~/.zsh_profile
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source ~/.zsh_aliases
+
 export PATH="$PATH:$HOME/.tmux/plugins/tmuxifier/bin"
 eval "$(tmuxifier init -)"
 

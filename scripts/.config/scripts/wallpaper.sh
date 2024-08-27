@@ -47,7 +47,7 @@ case "$chosen_wallpaper" in
         ;;
 esac
 
-Set the wallpaper
+# Set the wallpaper
 swww img "$wallpaper" --transition-step 100 --transition-type wipe --transition-angle 30
 
 wal -i "$wallpaper" --cols16
@@ -60,4 +60,6 @@ pywal-discord -t default
 . "$HOME/.config/spicetify/Themes/Pywal/update-colors.sh"
 
 echo "Wallpaper set to: $wallpaper"
+
+cp $(cat ~/.cache/wal/wal) /usr/share/sddm/themes/sugar-candy/Backgrounds/wallpaper
 
