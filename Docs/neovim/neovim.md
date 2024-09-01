@@ -180,7 +180,7 @@
   - `n` mode:
     - `<leader>a`: Add the current file to the Harpoon list
     - `<C-e>`: Toggle the Harpoon quick menu
-    - `<C-1>` to `<C-4>`: Select the corresponding file in the Harpoon list
+    - `<leader>1` to `<leader>4`: Select the corresponding file in the Harpoon list
     - `<C-S-P>`: Switch to the previous buffer in the Harpoon list
     - `<C-S-N>`: Switch to the next buffer in the Harpoon list
 - **Telescope**
