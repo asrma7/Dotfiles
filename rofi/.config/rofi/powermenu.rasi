@@ -38,8 +38,8 @@ prompt {
 listview {
     background-color:   transparent;
     margin:     1px 0 0;
-    columns:    6;
-    lines:      1;
+    columns:    1;
+    lines:      6;
     fixed-height: false;
 }
 
