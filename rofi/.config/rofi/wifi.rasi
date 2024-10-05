@@ -15,9 +15,9 @@ configuration {
 
 window {
     location: northeast;
-    y-offset: -32;
+    y-offset: 0;
     x-offset: -3;
-    width:          220;
+    width:          450;
     border-radius:  15px;
 
     border: 3px;

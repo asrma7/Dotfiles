@@ -115,7 +115,7 @@ source ~/.zsh_profile
 
 source ~/.zsh_aliases
 
-export PATH="$PATH:$HOME/.tmux/plugins/tmuxifier/bin"
+export PATH="$PATH:$HOME/.tmux/plugins/tmuxifier/bin:$HOME/flutter/bin:$HOME/.pub-cache/bin"
 eval "$(tmuxifier init -)"
 
 export EDITOR='nvim'

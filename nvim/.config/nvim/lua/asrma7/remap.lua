@@ -214,10 +214,10 @@ vim.keymap.set("v", "<leader><", "c<><Esc>P")
 -- # ThePrimeagen/harpoon
 -- <leader>a to add the current file to the Harpoon list
 -- <C-e> to toggle the Harpoon quick menu
--- <C-1> to select the 1st file in the Harpoon list
--- <C-2> to select the 2nd file in the Harpoon list
--- <C-3> to select the 3rd file in the Harpoon list
--- <C-4> to select the 4th file in the Harpoon list
+-- <leader>1 to select the 1st file in the Harpoon list
+-- <leader>2 to select the 2nd file in the Harpoon list
+-- <leader>3 to select the 3rd file in the Harpoon list
+-- <leader>4 to select the 4th file in the Harpoon list
 -- <C-S-P> to switch to the previous buffer in the Harpoon list
 -- <C-S-N> to switch to the next buffer in the Harpoon list
 
