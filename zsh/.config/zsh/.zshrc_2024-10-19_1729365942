@@ -1,0 +1,15 @@
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+CASE_SENSITIVE="true"
+
+source ~/.config/zsh/.zsh_profile
+
+source ~/.config/zsh/.zsh_aliases
+
+export PATH="$PATH:$HOME/.tmux/plugins/tmuxifier/bin:$HOME/flutter/bin:$HOME/.pub-cache/bin"
+
+eval "$(tmuxifier init -)"
+
+export EDITOR='nvim'
+export STARSHIP_CONFIG=/mnt/c/Users/ashut/.config/starship.toml
