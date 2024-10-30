@@ -10,8 +10,8 @@ alias nvc="nvim ~/.config/nvim/"
 
 alias ff="find -type f -not -iregex '.*/\.git/.*' | fzf-tmux -p --reverse | xargs -r nvim"
 
-# alias work="cd ~/projects"
-# alias dot="cd ~/dotfiles"
+alias work="cd ~/projects"
+alias dot="cd ~/dotfiles"
 
 alias :q="exit"
 alias py="python"

@@ -27,6 +27,7 @@ if [[ $MODE = "light" ]]; then
     set -o noclobber
     echo "dark" >| ${HOME}/.cache/wal/mode
 
+    ln -sf ${HOME}/.config/waybar/themes/frappe.css ${HOME}/.config/waybar/colors-waybar.css
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
     gsettings set org.gnome.desktop.interface icon-theme "breeze-dark"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
@@ -43,6 +44,7 @@ else
     set -o noclobber
     echo "light" >| ${HOME}/.cache/wal/mode
 
+    ln -sf ${HOME}/.config/waybar/themes/latte.css ${HOME}/.config/waybar/colors-waybar.css
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
     gsettings set org.gnome.desktop.interface icon-theme "breeze"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-light"

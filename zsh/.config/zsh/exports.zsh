@@ -9,7 +9,6 @@ export PATH="$HOME/.docker/bin":$PATH
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin":$PATH
 export PATH="$HOME/flutter/bin":$PATH
 export PATH="$HOME/.pub-cache/bin":$PATH
-export STARSHIP_CONFIG="/mnt/c/Users/ashut/.config/starship.toml"
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 
