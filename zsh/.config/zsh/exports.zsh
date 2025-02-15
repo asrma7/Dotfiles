@@ -9,6 +9,7 @@ export PATH="$HOME/.docker/bin":$PATH
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin":$PATH
 export PATH="$HOME/flutter/bin":$PATH
 export PATH="$HOME/.pub-cache/bin":$PATH
+export PATH="$HOME/.bun/bin":$PATH
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 

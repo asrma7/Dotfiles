@@ -36,3 +36,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 # Load and initialise completion system
 # autoload -Uz compinit
 # compinit
+
+# bun completions
+[ -s "/home/ashutosh/.bun/_bun" ] && source "/home/ashutosh/.bun/_bun"
