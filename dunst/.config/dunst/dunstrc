@@ -22,7 +22,6 @@
     progress_bar_frame_width = 1
     progress_bar_min_width = 150
     progress_bar_max_width = 400
-    progress_bar_corner_radius = 4
 
     indicate_hidden = yes
     shrink = no
@@ -31,7 +30,6 @@
     padding = 15
     horizontal_padding = 15
     frame_width = 2
-    corner_radius = 14
     sort = yes
     idle_threshold = 120
 

@@ -17,8 +17,6 @@ window {
     location: north;
     y-offset: -30;
     width:          400;
-    border-radius:  15px;
-
     border: 3px;
     border-color: @border-color;
 }
@@ -47,7 +45,6 @@ element {
     orientation: horizontal;
     padding:        8px 18px;
     spacing:        8px;
-    border-radius:  16px;
 }
 
 element normal urgent {

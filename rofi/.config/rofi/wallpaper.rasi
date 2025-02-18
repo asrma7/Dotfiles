@@ -16,8 +16,6 @@ configuration {
 window {
     location: center;
     width:          500;
-    border-radius:  15px;
-
     border: 2px;
     border-color: @border-color;
 }
@@ -42,7 +40,6 @@ listview {
 }
 
 element {
-    border-radius:  14px;
     orientation: horizontal;
     children: [ element-text, element-icon ];
     spacing: 5px;
