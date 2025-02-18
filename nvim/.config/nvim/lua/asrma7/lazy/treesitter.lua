@@ -3,7 +3,9 @@ return {
     build = ":TSUpdate",
     config = function()
         require 'nvim-treesitter.install'.prefer_git = false
-        require 'nvim-treesitter.install'.compilers = { "zig" }
+        if require("asrma7.utils").get_os() == "windows" then
+            require 'nvim-treesitter.install'.compilers = { "zig" }
+        end
         require("nvim-treesitter.configs").setup({
         ensure_installed = {
                     "vimdoc",
