@@ -2,7 +2,7 @@ require("asrma7.set")
 require("asrma7.remap")
 require("asrma7.lazy_init")
 
-local utils = require ("asrma7.utils")
+local utils = require("asrma7.utils")
 
 local augroup = vim.api.nvim_create_augroup
 local asrma7Group = augroup("asrma7", {})
@@ -31,7 +31,7 @@ autocmd({ "BufWritePre" }, {
 	command = [[%s/\s\+$//e]],
 })
 
-vim.cmd("colorscheme base16-catppuccin-frappe")
+vim.cmd("colorscheme base16-black-metal-gorgoroth")
 
 utils.fix_telescope_parens_win()
 

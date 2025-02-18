@@ -105,9 +105,8 @@ vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Format the current buffer
 vim.keymap.set({ "n", "i" }, "<C-f>", function()
-    require("conform").format({ async = true, lsp_fallback = true })
+	require("conform").format({ async = true, lsp_fallback = true })
 end, { noremap = true, silent = true })
-
 
 -- Custom telescope keybinding to find files and open them in a vertical split with <leader>sv in normal mode
 vim.keymap.set("n", "<leader>sv", function()
