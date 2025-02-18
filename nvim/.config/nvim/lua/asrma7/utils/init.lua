@@ -11,6 +11,8 @@ function utils.get_os()
 		return "windows"
 	elseif os_name == "Darwin" then
 		return "mac"
+    elseif uname.release:lower():find "microsoft" and true or false then
+        return "wsl"
 	else
 		return "linux"
 	end

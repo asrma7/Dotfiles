@@ -1,4 +1,3 @@
--- Map <leader>pv to open the Ex mode command-line window in normal mode
 vim.keymap.set("n", "<leader>pv", "<cmd>:Oil --float<CR>")
 
 -- Open Lazy Plugin Manager
