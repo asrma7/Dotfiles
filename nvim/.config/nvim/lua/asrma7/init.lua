@@ -2,6 +2,8 @@ require("asrma7.set")
 require("asrma7.remap")
 require("asrma7.lazy_init")
 
+local utils = require ("asrma7.utils")
+
 local augroup = vim.api.nvim_create_augroup
 local asrma7Group = augroup("asrma7", {})
 
@@ -11,12 +13,6 @@ local yank_group = augroup("HighlightYank", {})
 function R(name)
 	require("plenary.reload").reload_module(name)
 end
-
-vim.filetype.add({
-	extension = {
-		templ = "templ",
-	},
-})
 
 autocmd("TextYankPost", {
 	group = yank_group,
@@ -34,3 +30,9 @@ autocmd({ "BufWritePre" }, {
 	pattern = "*",
 	command = [[%s/\s\+$//e]],
 })
+
+vim.cmd("colorscheme base16-catppuccin-frappe")
+
+utils.fix_telescope_parens_win()
+
+utils.color_overrides.setup_colorscheme_overrides()

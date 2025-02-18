@@ -1,69 +1,89 @@
 return {
-	"nvim-telescope/telescope.nvim",
-	event = "VimEnter",
-	branch = "0.1.x",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
+    {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        {
+            "nvim-telescope/telescope-fzf-native.nvim",
+                build = (require("asrma7.utils").get_os() == "windows") and "mkdir build && zig cc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll" or "make",
+            -- build = "mkdir build && zig cc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll",
+        }
+    },
+    config = function()
+        require("telescope").setup({
+            extensions = {
+                fzf = {
+                    fuzzy = true,                    -- false will only do exact matching
+                    override_generic_sorter = false, -- override the generic sorter
+                    override_file_sorter = true,     -- override the file sorter
+                    case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                },
+            },
+            pickers = {
+                colorscheme = {
+                    enable_preview = true,
+                },
+                find_files = {
+                    hidden = true,
+                    find_command = {
+                    "rg",
+                    "--files",
+                    "--glob",
+                    "!.git/*,.next/*,node_modules/*",
+                    "--path-separator",
+                    "/",
+                    },
+                },
+            }
+        })
 
-			build = "make",
+    require("telescope").load_extension("fzf")
+    require("telescope").load_extension("zoxide")
+    require("telescope").load_extension("file_browser")
 
-			cond = function()
-				return vim.fn.executable("make") == 1
-			end,
-		},
-		{ "nvim-telescope/telescope-ui-select.nvim" },
+    -- telescope setup
+    local builtin = require("telescope.builtin")
 
-		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+    vim.keymap.set(
+        "n",
+        "<leader>jk",
+        "<cmd>lua require'telescope.builtin'.find_files({ find_command = { 'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
+        {}
+    )
+    vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", {})
+    vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+    vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", {})
+    vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
+    vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, {})
+    vim.keymap.set("n", "<leader>ws", builtin.lsp_workspace_symbols, {})
+    vim.keymap.set("n", "<leader>fz", ":Telescope zoxide list<CR>", {})
+    vim.keymap.set("n", "<leader>fv", builtin.help_tags, {})
+    end,
+},
+
+	{
+		"jvgrootveld/telescope-zoxide",
+		config = function() end,
 	},
-
-	config = function()
-		require("telescope").setup({
-			extensions = {
-				["ui-select"] = {
-					require("telescope.themes").get_dropdown(),
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+    },
+    {
+		"nvim-telescope/telescope-ui-select.nvim",
+		config = function()
+			require("telescope").setup({
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown({
+							-- even more opts
+						}),
+					},
 				},
-			},
-		})
-
-		pcall(require("telescope").load_extension, "fzf")
-		pcall(require("telescope").load_extension, "ui-select")
-
-		local builtin = require("telescope.builtin")
-
-		vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
-		vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-
-		vim.keymap.set("n", "<leader>vk", builtin.keymaps, {})
-
-		vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
-
-		vim.keymap.set("n", "<leader>pr", builtin.oldfiles, {})
-
-		vim.keymap.set("n", "<leader>pws", function()
-			local word = vim.fn.expand("<cword>")
-			builtin.grep_string({ search = word })
-		end)
-
-		vim.keymap.set("n", "<leader>pWs", function()
-			local word = vim.fn.expand("<cWORD>")
-			builtin.grep_string({ search = word })
-		end)
-
-		vim.keymap.set("n", "<leader>ps", function()
-			builtin.grep_string({ search = vim.fn.input("Grep > ") })
-		end)
-
-		vim.keymap.set("n", "<leader>/", function()
-			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-				winblend = 10,
-				previewer = false,
-			}))
-		end)
-
-		vim.keymap.set("n", "<leader>sn", function()
-			builtin.find_files({ cwd = vim.fn.stdpath("config") })
-		end)
-	end,
+			})
+			-- To get ui-select loaded and working with telescope, you need to call
+			-- load_extension, somewhere after setup function:
+			require("telescope").load_extension("ui-select")
+		end,
+	},
 }

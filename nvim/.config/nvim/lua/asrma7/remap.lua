@@ -1,8 +1,8 @@
 -- Map <leader>pv to open the Ex mode command-line window in normal mode
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", "<cmd>:Oil --float<CR>")
 
 -- Open Lazy Plugin Manager
-vim.keymap.set("n", "<leader>l", vim.cmd.Lazy)
+vim.keymap.set("n", "<leader>L", vim.cmd.Lazy)
 
 -- Move selected line(s) down in visual mode and reselect the moved lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -19,8 +19,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 -- Jump to the previous search result and center the cursor vertically
 vim.keymap.set("n", "N", "Nzzzv")
--- Map <leader>zig to restart the LSP (Language Server Protocol)
-vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 
 -- Paste in visual mode, but do not overwrite the unnamed register
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -54,12 +52,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- Make the current file executable with <leader>x in normal mode
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
--- Insert an if-err block below the cursor and position the cursor correctly with <leader>ee in normal mode
-vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
-
--- Run the "make_it_rain" effect from the CellularAutomaton plugin with <leader>mr in normal mode
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 -- Source the current Vim configuration file with <leader><leader> in normal mode
 vim.keymap.set("n", "<leader><leader>", function()
@@ -106,10 +98,17 @@ vim.keymap.set("n", "<leader>zZ", function()
 	ColorMyPencils()
 end)
 
+-- Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+
+-- Format the current buffer
+vim.keymap.set({ "n", "i" }, "<C-f>", function()
+    require("conform").format({ async = true, lsp_fallback = true })
+end, { noremap = true, silent = true })
+
 
 -- Custom telescope keybinding to find files and open them in a vertical split with <leader>sv in normal mode
 vim.keymap.set("n", "<leader>sv", function()
@@ -149,128 +148,5 @@ vim.keymap.set("n", "<leader>sz", function()
 	})
 end, { noremap = true, silent = true })
 
--- Keybinds for toggling the terminal
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>") -- Exit terminal mode
-vim.keymap.set({ "n", "t" }, "<leader><C-\\>", function() -- Toggle terminal number
-	local termNumber = vim.fn.input("Terminal > ")
-	vim.cmd("ToggleTerm " .. termNumber)
-end)
-
--- wrap selected text in quotes
-vim.keymap.set("v", '<leader>"', 'c""<Esc>P')
-vim.keymap.set("v", "<leader>'", "c''<Esc>P")
-vim.keymap.set("v", "<leader>`", "c``<Esc>P")
-
--- wrap selected text in brackets
-vim.keymap.set("v", "<leader>(", "c()<Esc>P")
-vim.keymap.set("v", "<leader>[", "c[]<Esc>P")
-vim.keymap.set("v", "<leader>{", "c{}<Esc>P")
-vim.keymap.set("v", "<leader><", "c<><Esc>P")
-
--------------------------------
--- Keybinds in other plugins --
--------------------------------
-
--- # NumToStr/Comment.nvim
--- gcc to comment line
--- gc for comment operator
--- gcb for comment block
--- gb for comment block operator
--- gcO for comment above
--- gco for comment below
--- gcA for comment at eol
-
--- # tpope/vim-fugitive
--- <leader>gp git push
--- <leader>gP git pull --rebase
--- <leader>gpo git push -u origin
-
--- # lewis6991/gitsigns.nvim
--- ]c to navigate to the next Git hunk (or normal mode command `]c` if in diff mode)
--- [c to navigate to the previous Git hunk (or normal mode command `[c` if in diff mode)
--- <leader>hs to stage the current hunk
--- <leader>hr to reset the current hunk
--- <leader>hS to stage all hunks in the current buffer
--- <leader>hu to undo the staging of the last hunk
--- <leader>hR to reset all hunks in the current buffer
--- <leader>hp to preview the current hunk
--- <leader>hb to blame the current line
--- <leader>hd to show the diff for the current hunk
--- <leader>hD to show the diff for the entire file (or commit)
--- <leader>tb to toggle blame for the current line
--- <leader>tD to toggle the display of deleted lines
--- <leader>hs to stage the selected hunk in visual mode
--- <leader>hr to reset the selected hunk in visual mode
-
--- # jay-babu/mason-nvim-dap.nvim
--- <leader>b toggle breakpoint
--- <leader>B set breakpoint condition
--- <F5> start/continue
--- <F1> step into
--- <F2> step over
--- <F3> step out
--- <F7> see last session result
-
--- # ThePrimeagen/harpoon
--- <leader>a to add the current file to the Harpoon list
--- <C-e> to toggle the Harpoon quick menu
--- <leader>1 to select the 1st file in the Harpoon list
--- <leader>2 to select the 2nd file in the Harpoon list
--- <leader>3 to select the 3rd file in the Harpoon list
--- <leader>4 to select the 4th file in the Harpoon list
--- <C-S-P> to switch to the previous buffer in the Harpoon list
--- <C-S-N> to switch to the next buffer in the Harpoon list
-
--- # neovim/nvim-lspconfig
--- gd to go to definition
--- K to show hover information
--- <leader>vws to search for workspace symbols
--- <leader>vd to open a diagnostic float
--- <leader>vca to show code actions
--- <leader>vrr to list references
--- <leader>vrn to rename symbol
--- <C-/> to show signature help in insert mode
--- [d to go to the next diagnostic
--- ]d to go to the previous diagnostic
-
--- # stevearc/conform.nvim
--- <leader>f to format the current buffer (format on save enabled for some filetypes)
-
--- # hrsh7th/nvim-cmp
--- <C-n> to select the next completion item
--- <C-p> to select the previous completion item
--- <C-y> to confirm the currently selected completion item
--- <C-Space> to trigger completion
-
--- # L3MON4D3/LuaSnip
--- <C-s>e to expand a snippet in insert mode
--- <C-s>; to jump to the next snippet placeholder in insert mode
--- <C-s>, to jump to the previous snippet placeholder in insert mode
--- <C-E> to change the current choice if a choice list is active in insert mode
-
--- # nvim-telescope/telescope.nvim
--- <leader>pf to find files in the current directory
--- <C-p> to find files in the current Git repository
--- <leader>vk to list keymaps
--- <leader>vh to list help tags
--- <leader>pr to list old files
--- <leader>pws to grep for the current word under the cursor
--- <leader>pWs to grep for the current WORD under the cursor
--- <leader>ps to grep for a user-input search string
--- <leader>/ to fuzzy find within the current buffer with a dropdown theme
--- <leader>sn to find files within the Neovim configuration directory
-
--- # christoomey/vim-tmux-navigator
--- <c-h> to navigate left in tmux
--- <c-j> to navigate down in tmux
--- <c-k> to navigate up in tmux
--- <c-l> to navigate right in tmux
--- <c-//> to navigate to the previous tmux pane
-
--- # folke/trouble.nvim
--- <leader>tx to toggle diagnostics in Trouble
--- <leader>tX to toggle buffer diagnostics in Trouble
--- <leader>ts to toggle symbols in Trouble
--- <leader>tl to toggle LSP definitions/references in Trouble
--- <leader>tL to toggle location list in Trouble
--- <leader>tQ to toggle quickfix list in Trouble
+-- colorscheme picker
+vim.keymap.set("n", "<C-n>", ":Telescope colorscheme<CR>")
