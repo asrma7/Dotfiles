@@ -10,6 +10,7 @@ export PATH="$HOME/.tmux/plugins/tmuxifier/bin":$PATH
 export PATH="$HOME/flutter/bin":$PATH
 export PATH="$HOME/.pub-cache/bin":$PATH
 export PATH="$HOME/.bun/bin":$PATH
+export PATH=$PATH:"/snap/bin"
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 
