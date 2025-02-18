@@ -7,10 +7,10 @@ return {
 				lua = { "stylua", stop_after_first = true },
 				python = { "black" },
 				rust = { "rustfmt" },
-				javascript = { "prettier", stop_after_first = true },
-				javascriptreact = { "prettier", stop_after_first = true },
-				typescript = { "prettier", stop_after_first = true },
-				typescriptreact = { "prettier", stop_after_first = true },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+				typescript = { "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 				go = { "gofumpt", "golines", "goimports-reviser" },
 				c = { "clang_format" },
 				cpp = { "clang_format" },
@@ -18,11 +18,12 @@ return {
 				html = { "prettier" },
 				json = { "prettier" },
 				markdown = { "prettier" },
-				-- sql = { "sqlfmt" },
+				terraform = { "terraform_fmt" },
+				sql = { "sqlfmt" },
 				asm = { "asmfmt" },
 				css = { "prettier", stop_after_first = true },
 			},
-			format_on_save = function(bufnr)
+			format_on_save = function()
 				if vim.g.disable_autoformat then
 					return
 				end

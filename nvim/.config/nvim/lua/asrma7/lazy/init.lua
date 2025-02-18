@@ -1,8 +1,8 @@
 return {
-    {
-        "nvim-lua/plenary.nvim",
-        name = "plenary",
-    },
+	{
+		"nvim-lua/plenary.nvim",
+		name = "plenary",
+	},
 
-    "ThePrimeagen/vim-be-good",
+	"ThePrimeagen/vim-be-good",
 }

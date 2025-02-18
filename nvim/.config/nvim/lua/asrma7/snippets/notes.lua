@@ -4,8 +4,6 @@ local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
 
--- ∀∃□¬∨∧∑λ∈∅
-
 local function get_date()
 	return os.date("%m-%d-%Y")
 end
@@ -51,7 +49,7 @@ return {
 	-- misc
 
 	s("head", {
-		t({ "-- Michael Williams", "" }),
+		t({ "-- Ashutosh Sharma", "" }),
 		t("-- Date: "),
 		f(get_date, {}),
 		t({ "", "-- Title: " }),
