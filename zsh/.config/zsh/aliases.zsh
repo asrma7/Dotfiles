@@ -49,6 +49,12 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 alias list_systemctl="systemctl list-unit-files --state=enabled"
 alias list_installed="pacman -Q | fzf"
 
+alias gc="gh repo clone"
+alias gpr="gh pr create"
+alias gprl="gh pr list"
+
+alias lg="lazygit"
+
 case "$(uname -s)" in
     Darwin)
         # echo 'Mac OS X'
