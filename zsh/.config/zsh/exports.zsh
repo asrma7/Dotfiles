@@ -11,6 +11,8 @@ export PATH="$HOME/flutter/bin":$PATH
 export PATH="$HOME/.pub-cache/bin":$PATH
 export PATH="$HOME/.bun/bin":$PATH
 export PATH=$PATH:"/snap/bin"
+export PATH="$HOME/.cargo/bin":$PATH
+export PATH="$HOME/go/bin":$PATH
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 
