@@ -16,12 +16,6 @@ if [[ -d $wallpaper_dir && $(find_images "$wallpaper_dir") ]]; then
   # Set the wallpaper using swww with transition effects
   swww img "$random_wallpaper" --transition-step 100 --transition-type wipe --transition-angle 30
 
-  wal -i $random_wallpaper --cols16
-
-  pywalfox update
-  pywal-discord -t default
-  pywal-spicetify Dribbblish
-
   . $HOME/.config/mako/update-colors.sh
 
   echo "Wallpaper set to: $random_wallpaper"

@@ -50,16 +50,6 @@ esac
 # Set the wallpaper
 swww img "$wallpaper" --transition-step 100 --transition-type wipe --transition-angle 30
 
-wal -i "$wallpaper" --cols16
-
-pywalfox update
-pywal-discord -t default
-# pywal-spicetify Dribbblish
-
-. "$HOME/.config/mako/update-colors.sh"
-. "$HOME/.config/spicetify/Themes/Pywal/update-colors.sh"
-
 echo "Wallpaper set to: $wallpaper"
 
-cp $(cat ~/.cache/wal/wal) /usr/share/sddm/themes/sugar-candy/Backgrounds/wallpaper
-
+cp $wallpaper  /usr/share/sddm/themes/sugar-candy/Backgrounds/wallpaper
