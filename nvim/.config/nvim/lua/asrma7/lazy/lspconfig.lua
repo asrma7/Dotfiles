@@ -37,6 +37,43 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(e)
+					local opts = { buffer = e.buf }
+					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+					vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
+					vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+
+					-- CursorHold highlight
+					local client = vim.lsp.get_client_by_id(e.data.client_id)
+					if client and client.server_capabilities.documentHighlightProvider then
+						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+							buffer = e.buf,
+							callback = vim.lsp.buf.document_highlight,
+						})
+						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+							buffer = e.buf,
+							callback = vim.lsp.buf.clear_references,
+						})
+					end
+				end,
+			})
+
+			-- Diagonistics Float Border
+			vim.diagnostic.config({
+				float = {
+					floatable = false,
+					style = "minimal",
+					border = "rounded",
+					source = true,
+					header = "",
+					prefix = "",
+				},
+			})
+
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local lspconfig = require("lspconfig")
