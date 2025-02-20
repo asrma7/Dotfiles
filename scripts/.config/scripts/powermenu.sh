@@ -18,13 +18,13 @@ all=(suspend hibernate reboot shutdown logout lockscreen)
 # By default, show all (i.e., just copy the array)
 show=("${all[@]}")
 
-declare -A texts texts[lockscreen]="lock screen"
-texts[switchuser]="switch user"
-texts[logout]="log out"
+declare -A texts texts[lockscreen]="lock"
+# texts[switchuser]="switch user"
+texts[logout]="logout"
 texts[suspend]="suspend"
 texts[hibernate]="hibernate"
 texts[reboot]="reboot"
-texts[shutdown]="shut down"
+texts[shutdown]="shutdown"
 
 declare -A icons
 icons[lockscreen]="\Uf033e"
