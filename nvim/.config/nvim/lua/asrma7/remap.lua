@@ -79,7 +79,6 @@ vim.keymap.set("n", "<leader>zz", function()
 	vim.wo.wrap = false
 	vim.wo.number = true
 	vim.wo.rnu = true
-	ColorMyPencils()
 end)
 
 vim.keymap.set("n", "<leader>zZ", function()
@@ -94,7 +93,6 @@ vim.keymap.set("n", "<leader>zZ", function()
 	vim.wo.number = false
 	vim.wo.rnu = false
 	vim.opt.colorcolumn = "0"
-	ColorMyPencils()
 end)
 
 -- Disable arrow keys in normal mode
@@ -148,3 +146,6 @@ end, { noremap = true, silent = true })
 
 -- colorscheme picker
 vim.keymap.set("n", "<C-n>", ":Telescope colorscheme<CR>")
+
+-- Dismiss Noice notfications
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>")

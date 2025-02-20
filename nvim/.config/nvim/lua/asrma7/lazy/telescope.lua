@@ -43,6 +43,7 @@ return {
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("zoxide")
 			require("telescope").load_extension("file_browser")
+			require("telescope").load_extension("noice")
 
 			-- telescope setup
 			local builtin = require("telescope.builtin")
