@@ -1,5 +1,5 @@
 alias zc="nvim ~/.config/zsh/.zshrc"
-alias za="nvim ~/.config/zsh/.zsh_aliases"
+alias za="nvim ~/.config/zsh/aliases.zsh"
 alias zs="source ~/.config/zsh/.zshrc"
 alias ze="nvim ~/.config/zsh/.zshenv"
 alias zse="source ~/.config/zsh/.zshenv"
