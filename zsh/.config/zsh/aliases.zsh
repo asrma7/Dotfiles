@@ -22,7 +22,6 @@ alias ll='eza -alF --icons --color=always --group-directories-first'
 alias la='eza -a --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
 alias l.='eza -a | grep -E "^\."'
-alias mk="musikcube"
 
 alias config="cd ~/.config"
 alias ndot="~/.config/scripts/ndot.sh"
@@ -55,17 +54,3 @@ alias gprl="gh pr list"
 
 alias lg="lazygit"
 
-case "$(uname -s)" in
-    Darwin)
-        # echo 'Mac OS X'
-        ;;
-    Linux)
-        # echo 'Linux'
-        ;;
-    CYGWIN* | MINGW32* | MSYS* | MINGW*)
-        # ECHO 'MS Windows'
-        ;;
-    *)
-        # echo "Other OS"
-        ;;
-esac
