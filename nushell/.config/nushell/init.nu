@@ -6,7 +6,7 @@ $env.keybindings = $env.config.keybindings ++ [
     mode: [emacs, vi_normal, vi_insert]
     event: {
       send: executehostcommand,
-      cmd: $"source '($nu.env-path)'; source '($nu.config-path)'"
+      cmd: $"exec nu"
     }
   }
 ]
@@ -29,3 +29,4 @@ $env.config = ($env.config | merge {
 })
 
 source aliases.nu
+source exports.nu
