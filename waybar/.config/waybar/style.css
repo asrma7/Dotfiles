@@ -1,4 +1,6 @@
-@import './colors-waybar.css';
+/*@import './themes/black-metal-gorgoroth.css';*/
+/*@import './themes/catppuccin-frappe.css';*/
+@import './themes/rose-pine.css';
 
 /* Global Defaults */
 * {
@@ -9,9 +11,7 @@ font-size: 14px;
 /* Waybar Window */
 window#waybar {
 background-color: @mantle;
-/* #121212 */
 color: @text;
-/* #c1c1c1 */
 transition-property: background-color;
 transition-duration: 0.5s;
 }

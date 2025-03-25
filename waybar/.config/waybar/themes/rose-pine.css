@@ -1,0 +1,15 @@
+@define-color base #191724;
+@define-color mantle #1f1d2e;
+@define-color crust #26233a;
+
+@define-color text #e0def4;
+@define-color subtext0 #6e6a86;
+@define-color subtext1 #908caa;
+
+@define-color accent1 #eb6f92;
+@define-color accent2 #f6c177;
+@define-color accent3 #31748f;
+
+@define-color overlay0 #ebbcba;
+@define-color overlay1 #9ccfd8;
+@define-color overlay2 #c4a7e7;
