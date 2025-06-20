@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from gi.repository import Playerctl, GLib
 import argparse
 import logging
 import sys
@@ -6,7 +7,6 @@ import signal
 import gi
 import json
 gi.require_version('Playerctl', '2.0')
-from gi.repository import Playerctl, GLib
 
 logger = logging.getLogger(__name__)
 
@@ -41,6 +41,10 @@ def on_metadata(player, metadata, manager):
     else:
         track_info = player.get_title()
 
+    # limit the length of the track info to 50 characters
+    if len(track_info) > 50:
+        track_info = track_info[:50] + '...'
+
     if player.props.status != 'Playing' and track_info:
         track_info = ' ' + track_info
     write_output(track_info, player)
@@ -50,7 +54,8 @@ def on_player_appeared(manager, player, selected_player=None):
     if player is not None and (selected_player is None or player.name == selected_player):
         init_player(manager, player)
     else:
-        logger.debug("New player appeared, but it's not the selected player, skipping")
+        logger.debug(
+            "New player appeared, but it's not the selected player, skipping")
 
 
 def on_player_vanished(manager, player):
@@ -105,7 +110,8 @@ def main():
     manager = Playerctl.PlayerManager()
     loop = GLib.MainLoop()
 
-    manager.connect('name-appeared', lambda *args: on_player_appeared(*args, arguments.player))
+    manager.connect('name-appeared',
+                    lambda *args: on_player_appeared(*args, arguments.player))
     manager.connect('player-vanished', on_player_vanished)
 
     signal.signal(signal.SIGINT, signal_handler)
