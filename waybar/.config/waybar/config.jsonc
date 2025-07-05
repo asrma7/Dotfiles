@@ -22,7 +22,7 @@
         "tray",
         "custom/theme",
         "bluetooth",
-        "network",
+        // "network",
         "pulseaudio",
         "backlight",
         "clock",
@@ -105,20 +105,20 @@
         "on-scroll-up": "~/.config/scripts/brightness.sh --inc",
         "on-scroll-down": "~/.config/scripts/brightness.sh --dec"
     },
-    "network": {
-        "format-wifi": "{icon}",
-        "format-ethernet": "󰈁 ",
-        "format-disconnected": "󰖪",
-        "tooltip-format": "{essid}",
-        "on-click": "~/.config/scripts/network.sh",
-        "format-icons": [
-            "󰤯",
-            "󰤟",
-            "󰤢",
-            "󰤥",
-            "󰤨"
-        ]
-    },
+    // "network": {
+    //     "format-wifi": "{icon}",
+    //     "format-ethernet": "󰈁 ",
+    //     "format-disconnected": "󰖪",
+    //     "tooltip-format": "{essid}",
+    //     "on-click": "~/.config/scripts/network.sh",
+    //     "format-icons": [
+    //         "󰤯",
+    //         "󰤟",
+    //         "󰤢",
+    //         "󰤥",
+    //         "󰤨"
+    //     ]
+    // },
     "pulseaudio": {
         "format": "{icon}",
         "format-muted": "",
