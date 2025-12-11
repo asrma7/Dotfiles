@@ -1,33 +1,5 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# format = """
-# $os\
-# $shell\
-# $username\
-# $hostname\
-# [](bg:color_yellow fg:color_orange)\
-# $directory\
-# [](fg:color_yellow bg:color_aqua)\
-# $git_branch\
-# $git_status\
-# [](fg:color_aqua bg:color_blue)\
-# $c\
-# $rust\
-# $golang\
-# $nodejs\
-# $php\
-# $java\
-# $kotlin\
-# $haskell\
-# $python\
-# [](fg:color_blue bg:color_bg3)\
-# $docker_context\
-# $conda\
-# [](fg:color_bg3 bg:color_bg1)\
-# $time\
-# [ ](fg:color_bg1)\
-# $line_break$character"""
-
 format = """
 [┏](fg:white)\
 $os\
@@ -36,6 +8,7 @@ $username\
 $hostname\
 $git_branch\
 $git_status\
+$env_var\
 $fill\
 $c\
 $rust\
@@ -159,6 +132,12 @@ format = '[[ $symbol $branch ](fg:base bg:light_yellow)]($style)'
 [git_status]
 style = "bg:light_yellow"
 format = '[[($all_status$ahead_behind )](fg:base bg:light_yellow)]($style)'
+
+[env_var]
+variable = "AWS_PROFILE"
+symbol = ''
+style = 'bg:#F79400'
+format = '[[ $symbol( $env_value )](fg:base bg:#F79400)]($style)'
 
 [nodejs]
 symbol = " "
