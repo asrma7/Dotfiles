@@ -12,7 +12,7 @@ configuration {
     terminal: "/usr/bin/kitty";
 }
 
-@theme "~/.cache/wal/colors-rofi-dark.rasi"
+@theme "./colors-dark.rasi"
 
 * {
     font: "MesloLGS Nerd Font Mono 12";
