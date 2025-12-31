@@ -123,7 +123,7 @@
   "weatherEnabled": true,
   "networkPreference": "wifi",
   "vpnLastConnected": "",
-  "iconTheme": "Dracula",
+  "iconTheme": "Papirus-Dark",
   "launcherLogoMode": "os",
   "launcherLogoCustomPath": "",
   "launcherLogoColorOverride": "primary",
