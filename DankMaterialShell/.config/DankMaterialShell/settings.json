@@ -117,8 +117,6 @@
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
   "niriOverviewOverlayEnabled": true,
-  "weatherLocation": "40.7128, -74.0060",
-  "weatherCoordinates": "40.7128,-74.0060",
   "useAutoLocation": true,
   "weatherEnabled": true,
   "networkPreference": "wifi",
@@ -280,7 +278,7 @@
       "borderOpacity": 1,
       "borderThickness": 1,
       "fontScale": 1,
-      "autoHide": false,
+      "autoHide": true,
       "autoHideDelay": 250,
       "openOnOverview": false,
       "visible": true,
@@ -288,5 +286,6 @@
       "popupGapsManual": 4
     }
   ],
-  "configVersion": 2
+  "configVersion": 5,
+  "desktopWidgetInstances": []
 }
